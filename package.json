@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@bigheads/core": "^0.3.0",
+    "framer-motion": "^2.7.6",
     "next": "latest",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
