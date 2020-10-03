@@ -38,10 +38,10 @@ export default function Index() {
 		<Layout>
 			<h1 className="text-3xl font-bold mt-8">
 				Learn{" "}
-				<NextLogo className="inline-block w-32 mx-2 my-1" />{" "}
+				<NextLogo className="inline-block w-32 mx-2 my-1 text-white" />{" "}
 				by doing
 			</h1>
-			<p className="text-sm italic text-gray-800">
+			<p className="text-sm italic text-gray-200">
 				"learn by doing" is the best way to learn
 			</p>
 			<p className="font-mono text-lg mt-3">
@@ -60,25 +60,25 @@ export default function Index() {
 			>
 				<Mark />
 			</motion.div>
-			<p className="text-xl font-bold text-gray-800">
+			<p className="text-xl font-bold text-gray-200">
 				"hey! I need your help!"
 			</p>
-			<p className="text-center my-6 text-gray-700">
+			<p className="text-center my-6 text-gray-300">
 				I'm{" "}
-				<strong className="text-gray-900">
+				<strong className="text-gray-100">
 					Karm Xubergerg
 				</strong>
 				, I need{" "}
-				<strong className="text-gray-900">
+				<strong className="text-gray-100">
 					you
 				</strong>{" "}
 				to create a{" "}
 				<NextLogo className="inline-block w-16 mx-2" />{" "}
 				site for me now!
 			</p>
-			<p className="text-center mb-16 text-gray-700">
+			<p className="text-center mb-16 text-gray-300">
 				It must have one page with the title{" "}
-				<strong className="text-gray-900">
+				<strong className="text-gray-100">
 					ToeBook
 				</strong>
 				<br />

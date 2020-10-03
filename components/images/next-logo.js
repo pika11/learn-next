@@ -1,8 +1,15 @@
-export default function NextLogo({ className }) {
+export default function NextLogo({
+	className,
+	color,
+}) {
 	return (
 		<img
 			className={className}
-			src="/images/nextjs-logo.svg"
+			src={
+				color == "black"
+					? "/images/nextjs-logo.svg"
+					: "/images/nextjs-logo-white.svg"
+			}
 		/>
 	)
 }
