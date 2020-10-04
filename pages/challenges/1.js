@@ -98,7 +98,7 @@ export default function challenge1() {
 				<h1 className="text-lg pt-1 pb-2 font-bold">
 					Challenge 1:
 				</h1>
-				<p className="text-gray-300 italic pb-8 text-center">
+				<p className="text-gray-300 italic pb-8 text-center font-bold">
 					Create a{" "}
 					<NextLogo className="inline-block w-16" />{" "}
 					project <br />
