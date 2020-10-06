@@ -1,5 +1,4 @@
 {
-    "next": "latest",
 	"name": "with-tailwindcss",
 	"version": "1.0.0",
 	"scripts": {
@@ -11,6 +10,7 @@
 		"@bigheads/core": "^0.3.0",
 		"codemirror": "^5.58.1",
 		"framer-motion": "^2.7.6",
+		"next": "canary",
 		"react": "^16.13.1",
 		"react-codemirror2": "^7.2.1",
 		"react-dom": "^16.13.1"
