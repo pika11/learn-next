@@ -14,20 +14,13 @@ export default function challenge1() {
 	const [command, setCommand] = useState([])
 	const [isWrong, setIsWrong] = useState(false)
 	const [success, setSuccess] = useState(false)
-	const [
-		isCalculating,
-		setIsCalculating,
-	] = useState(false)
+	const [isCalculating, setIsCalculating] = useState(false)
 
 	const router = useRouter()
 
 	const onCommandButtonClick = (text) => {
 		if (text == "delete") {
-			setCommand(
-				command.filter(
-					(el, i, arr) => !(i == arr.length - 1)
-				)
-			)
+			setCommand(command.filter((el, i, arr) => !(i == arr.length - 1)))
 		} else if (text == "space") {
 			setCommand([...command, "&nbsp;"])
 		} else {
@@ -39,37 +32,31 @@ export default function challenge1() {
 		return { __html: command.join("") }
 	}
 
-	const run = () => {
+	const run = async () => {
 		if (isCalculating) return
 		setIsWrong(false)
 		setIsCalculating(true)
-		setTimeout(() => {
-			const commandIsCorrect =
-				command
-					.filter(
-						(section) => !(section == "&nbsp;")
-					)
-					.reduce((acc, curr) => acc + curr) ==
-				"npxcreate-next-appToeBook"
-			if (commandIsCorrect) {
-				setSuccess(true)
-				setTimeout(() => {
-					router.push("/challenges/2")
-				}, 5000)
-			} else {
-				setIsCalculating(false)
-				setIsWrong(true)
-			}
-		}, 1000)
+		await new Promise((resolve) => setTimeout(resolve, 1000))
+		const commandIsCorrect =
+			command
+				.filter((section) => !(section == "&nbsp;"))
+				.reduce((acc, curr) => acc + curr, "") == "npxcreate-next-appToeBook"
+		if (commandIsCorrect) {
+			setSuccess(true)
+			await new Promise((resolve) => setTimeout(resolve, 5000))
+			router.push("/challenges/2")
+		} else {
+			setIsCalculating(false)
+			setIsWrong(true)
+		}
 	}
 
 	return (
 		<>
 			<InfoModal>
 				<li className="mb-3">
-					<strong>create-next-app:</strong>{" "}
-					Similar to <code>create-react-app</code>{" "}
-					but for Next.JS You can read more about
+					<strong>create-next-app:</strong> Similar to{" "}
+					<code>create-react-app</code> but for Next.JS You can read more about
 					this{" "}
 					<a
 						className="text-blue-600 underline"
@@ -79,10 +66,8 @@ export default function challenge1() {
 					</a>
 				</li>
 				<li className="mb-3">
-					<strong>npx:</strong> If you have npm
-					5.2 or greater you probably already have
-					it installed. You can read more about
-					this{" "}
+					<strong>npx:</strong> If you have npm 5.2 or greater you probably
+					already have it installed. You can read more about this{" "}
 					<a
 						className="text-blue-600 underline"
 						href="https://blog.npmjs.org/post/162869356040/introducing-npx-an-npm-package-runner"
@@ -95,13 +80,9 @@ export default function challenge1() {
 				<div className="w-24 mt-4">
 					<Mark />
 				</div>
-				<h1 className="text-lg pt-1 pb-2 font-bold">
-					Challenge 1:
-				</h1>
+				<h1 className="text-lg pt-1 pb-2 font-bold">Challenge 1:</h1>
 				<p className="text-gray-300 italic pb-8 text-center font-bold">
-					Create a{" "}
-					<NextLogo className="inline-block w-16" />{" "}
-					project <br />
+					Create a <NextLogo className="inline-block w-16" /> project <br />
 					named <strong>ToeBook</strong>
 				</p>
 				<div
@@ -110,12 +91,8 @@ export default function challenge1() {
 					bg-gray-800 rounded-lg p-2
 					overflow-x-scroll"
 				>
-					<p className="text-green-400 text-lg px-1">
-						~
-					</p>
-					<p
-						dangerouslySetInnerHTML={commandText()}
-					></p>
+					<p className="text-green-400 text-lg px-1">~</p>
+					<p dangerouslySetInnerHTML={commandText()}></p>
 					<motion.div
 						animate={{
 							opacity: [0, 1],
@@ -134,67 +111,37 @@ export default function challenge1() {
 						flex-wrap justify-center 
 						mt-8"
 				>
-					<CommandButton
-						onClick={onCommandButtonClick}
-						value="create"
-					>
+					<CommandButton onClick={onCommandButtonClick} value="create">
 						create
 					</CommandButton>
-					<CommandButton
-						onClick={onCommandButtonClick}
-						value="react"
-					>
+					<CommandButton onClick={onCommandButtonClick} value="react">
 						react
 					</CommandButton>
-					<CommandButton
-						onClick={onCommandButtonClick}
-						value="-"
-					>
+					<CommandButton onClick={onCommandButtonClick} value="-">
 						-
 					</CommandButton>
-					<CommandButton
-						onClick={onCommandButtonClick}
-						value="next"
-					>
+					<CommandButton onClick={onCommandButtonClick} value="next">
 						next
 					</CommandButton>
-					<CommandButton
-						onClick={onCommandButtonClick}
-						value="app"
-					>
+					<CommandButton onClick={onCommandButtonClick} value="app">
 						app
 					</CommandButton>
-					<CommandButton
-						onClick={onCommandButtonClick}
-						value="npx"
-					>
+					<CommandButton onClick={onCommandButtonClick} value="npx">
 						npx
 					</CommandButton>
-					<CommandButton
-						onClick={onCommandButtonClick}
-						value="npm"
-					>
+					<CommandButton onClick={onCommandButtonClick} value="npm">
 						npm
 					</CommandButton>
-					<CommandButton
-						onClick={onCommandButtonClick}
-						value="ToeBook"
-					>
+					<CommandButton onClick={onCommandButtonClick} value="ToeBook">
 						ToeBook
 					</CommandButton>
-					<CommandButton
-						onClick={onCommandButtonClick}
-						value="space"
-					>
+					<CommandButton onClick={onCommandButtonClick} value="space">
 						<div className="flex gap-x-1">
 							<ArrowRight className="w-6" />
 							(space)
 						</div>
 					</CommandButton>
-					<CommandButton
-						onClick={onCommandButtonClick}
-						value="delete"
-					>
+					<CommandButton onClick={onCommandButtonClick} value="delete">
 						<div className="flex gap-x-1">
 							<Backspace className="w-6" />
 							(delete)
@@ -202,23 +149,13 @@ export default function challenge1() {
 					</CommandButton>
 				</div>
 				{isWrong && (
-					<img
-						className="w-1/2 rounded-lg mt-4"
-						src="/gifs/ahahah.gif"
-					/>
+					<img className="w-1/2 rounded-lg mt-4" src="/gifs/ahahah.gif" />
 				)}
 				{success && (
 					<>
-						<img
-							className="w-1/2 rounded-lg mt-4"
-							src="/gifs/clever.gif"
-						/>
-						<p className="text-2xl text-center">
-							Nice!!
-						</p>
-						<p className="text-center">
-							loading next challenge...
-						</p>
+						<img className="w-1/2 rounded-lg mt-4" src="/gifs/clever.gif" />
+						<p className="text-2xl text-center">Nice!!</p>
+						<p className="text-center">loading next challenge...</p>
 					</>
 				)}
 				<motion.button
