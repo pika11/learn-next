@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 
 import Layout from "../../components/layout"
 import InfoModal from "../../components/challenges/info-modal"
+import RunButton from "../../components/challenges/run-button"
 import Mark from "../../components/bigheads/mark"
 import NextLogo from "../../components/images/next-logo"
 import CommandButton from "../../components/challenges/1/command-button"
@@ -158,34 +159,7 @@ export default function challenge1() {
 						<p className="text-center">loading next challenge...</p>
 					</>
 				)}
-				<motion.button
-					whileTap={{
-						scale: 0.8,
-					}}
-					onClick={run}
-					className="
-				bg-green-600 text-white my-8 py-4 px-8
-				 	font-bold text-lg round"
-				>
-					{isCalculating ? (
-						<svg
-							className="animate-spin h-6 w-6"
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-						>
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								strokeWidth={2}
-								d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-							/>
-						</svg>
-					) : (
-						"Run"
-					)}
-				</motion.button>
+				<RunButton text="Run" onClick={run} isCalculating={isCalculating} />
 			</Layout>
 		</>
 	)

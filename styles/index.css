@@ -1,22 +1,19 @@
 @tailwind base;
 
 /* Write your own custom base styles here */
+html,
+body {
+	@apply bg-gray-900 text-white;
+}
 
 /* Start purging... */
 @tailwind components;
 /* Stop purging. */
 
 /* Write your own custom component styles here */
-.btn-blue {
-	@apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
-}
 
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */
 
 /* Your own custom utilities */
-html,
-body {
-	@apply bg-gray-900 text-white;
-}
