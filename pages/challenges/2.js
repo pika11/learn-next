@@ -41,7 +41,8 @@ export default function challenge2() {
 	}
 
 	const previewContent = () => {
-		return { __html: code.match(/(?<=return \()[^)]+(?=\))/g)[0] }
+		const html = code.split("return (")[1].split(");")[0]
+		return { __html: html }
 	}
 
 	const submit = async () => {
