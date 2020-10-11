@@ -2,7 +2,8 @@ import { useEffect } from "react"
 
 export default function Footer() {
 	useEffect(() => {
-		if (twttr) twttr.widgets.load()
+		if (typeof twttr !== "undefined") 
+			twttr.widgets.load()
 	}, [])
 
 	return (
