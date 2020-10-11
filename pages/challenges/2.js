@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion"
 
 import Layout from "../../components/layout"
 import RunButton from "../../components/challenges/run-button"
+import WrongSuccessGifs from "../../components/challenges/wrong-success-gifs"
+import InfoModal from "../../components/challenges/info-modal"
 import Mark from "../../components/bigheads/mark"
 import NextLogo from "../../components/images/next-logo"
 import Folder from "../../components/icons/folder"
@@ -19,6 +21,8 @@ const CodeMirror = dynamic(
 
 export default function challenge2() {
 	const [isCalculating, setIsCalculating] = useState(false)
+	const [isWrong, setIsWrong] = useState(false)
+	const [success, setSuccess] = useState(false)
 	const [activeWindow, setActiveWindow] = useState("finder")
 	const [code, setCode] = useState(
 		"export default function Index() {\n  return (\n    <h1>Hello</h1>\n  );\n}"
@@ -41,17 +45,44 @@ export default function challenge2() {
 	}
 
 	const submit = async () => {
+		if (isCalculating) return
 		setIsCalculating(true)
+		setIsWrong(false)
+		setSuccess(false)
 		await new Promise((resolve) => setTimeout(resolve, 1000))
 		if (previewContent().__html.includes("<h1>ToeBook</h1>")) {
+			setSuccess(true)
+			await new Promise((resolve) => setTimeout(resolve, 5000))
 			router.push("/challenges/3")
 		} else {
 			setIsCalculating(false)
+			setIsWrong(true)
 		}
 	}
 
 	return (
 		<>
+			<InfoModal>
+				<li className="mb-3">
+					<strong>React Components:</strong> Build block of React. You can read
+					more about this{" "}
+					<a
+						className="text-blue-600 underline"
+						href="https://reactjs.org/docs/components-and-props.html"
+					>
+						here.
+					</a>
+				</li>
+				<li className="mb-3">
+					<strong>jsx:</strong> html in javascript. Read more about this{" "}
+					<a
+						className="text-blue-600 underline"
+						href="https://reactjs.org/docs/introducing-jsx.html"
+					>
+						here.
+					</a>
+				</li>
+			</InfoModal>
 			<Layout>
 				<div className="w-24 mt-4">
 					<Mark />
@@ -177,6 +208,7 @@ export default function challenge2() {
 						)}
 					</AnimatePresence>
 				</div>
+				<WrongSuccessGifs success={success} isWrong={isWrong} />
 				<RunButton
 					onClick={submit}
 					isCalculating={isCalculating}

@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import Layout from "../../components/layout"
 import InfoModal from "../../components/challenges/info-modal"
 import RunButton from "../../components/challenges/run-button"
+import WrongSuccessGifs from "../../components/challenges/wrong-success-gifs"
 import Mark from "../../components/bigheads/mark"
 import NextLogo from "../../components/images/next-logo"
 import CommandButton from "../../components/challenges/1/command-button"
@@ -149,16 +150,7 @@ export default function challenge1() {
 						</div>
 					</CommandButton>
 				</div>
-				{isWrong && (
-					<img className="w-1/2 rounded-lg mt-4" src="/gifs/ahahah.gif" />
-				)}
-				{success && (
-					<>
-						<img className="w-1/2 rounded-lg mt-4" src="/gifs/clever.gif" />
-						<p className="text-2xl text-center">Nice!!</p>
-						<p className="text-center">loading next challenge...</p>
-					</>
-				)}
+				<WrongSuccessGifs isWrong={isWrong} success={success} />
 				<RunButton text="Run" onClick={run} isCalculating={isCalculating} />
 			</Layout>
 		</>

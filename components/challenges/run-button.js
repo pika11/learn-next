@@ -3,6 +3,9 @@ import { motion } from "framer-motion"
 export default function RunButton({ text, onClick, className, isCalculating }) {
 	return (
 		<motion.button
+			whileHover={{
+				scale: 0.9,
+			}}
 			whileTap={{
 				scale: 0.8,
 			}}

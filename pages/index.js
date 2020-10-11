@@ -60,13 +60,14 @@ export default function Index() {
 			<p className="text-center my-6 text-gray-300">
 				I'm <strong className="text-gray-100">Karm Xubergerg</strong>, I need{" "}
 				<strong className="text-gray-100">you</strong> to create a{" "}
-				<NextLogo className="inline-block w-16 mx-2" /> site for me now!
+				<NextLogo className="inline-block w-16 mx-2" /> site for me now! this
+				will only be a 3 small tasks kind of gig
 			</p>
 			<p className="text-center mb-16 text-gray-300">
 				It must have one page with the title{" "}
 				<strong className="text-gray-100">ToeBook</strong>
 				<br />
-				Toes will be the next big thing!, Hurry!
+				Toes will be the next big thing! Hurry!
 			</p>
 			<Link href="/challenges/1">
 				<motion.a
