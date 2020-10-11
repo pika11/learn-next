@@ -39,7 +39,7 @@ export default function challenge3() {
 				const data = await response.json()
 				if (data.review) {
 					setSuccess(data.review)
-					await new Promise((resolve) => setTimeout(resolve, 5000))
+					await new Promise((resolve) => setTimeout(resolve, 3000))
 					router.push("/challenges/success")
 				} else {
 					submissionIsWrong()

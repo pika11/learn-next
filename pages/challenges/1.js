@@ -45,7 +45,7 @@ export default function challenge1() {
 				.reduce((acc, curr) => acc + curr, "") == "npxcreate-next-appToeBook"
 		if (commandIsCorrect) {
 			setSuccess(true)
-			await new Promise((resolve) => setTimeout(resolve, 5000))
+			await new Promise((resolve) => setTimeout(resolve, 3000))
 			router.push("/challenges/2")
 		} else {
 			setIsCalculating(false)
@@ -109,7 +109,7 @@ export default function challenge1() {
 					></motion.div>
 				</div>
 				<div
-					className="flex gap-5 
+					className="flex
 						flex-wrap justify-center 
 						mt-8"
 				>
@@ -138,13 +138,13 @@ export default function challenge1() {
 						ToeBook
 					</CommandButton>
 					<CommandButton onClick={onCommandButtonClick} value="space">
-						<div className="flex gap-x-1">
+						<div className="flex items-center">
 							<ArrowRight className="w-6" />
 							(space)
 						</div>
 					</CommandButton>
 					<CommandButton onClick={onCommandButtonClick} value="delete">
-						<div className="flex gap-x-1">
+						<div className="flex items-center">
 							<Backspace className="w-6" />
 							(delete)
 						</div>

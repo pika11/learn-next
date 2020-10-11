@@ -52,7 +52,7 @@ export default function challenge2() {
 		await new Promise((resolve) => setTimeout(resolve, 1000))
 		if (previewContent().__html.includes("<h1>ToeBook</h1>")) {
 			setSuccess(true)
-			await new Promise((resolve) => setTimeout(resolve, 5000))
+			await new Promise((resolve) => setTimeout(resolve, 3000))
 			router.push("/challenges/3")
 		} else {
 			setIsCalculating(false)
@@ -127,14 +127,14 @@ export default function challenge2() {
 							>
 								<ul className="p-6">
 									<li>
-										<div className="pb-2 flex gap-1">
-											<Folder className="w-4" />
+										<div className="pb-2 flex items-center m-1">
+											<Folder className="w-4 mr-2" />
 											ToeBook
 										</div>
 										<ul className="pl-6">
 											<li className="pb-1">
-												<div className="flex gap-1">
-													<Folder className="w-4" />
+												<div className="flex items-center m-1">
+													<Folder className="w-4 mr-2" />
 													pages
 												</div>
 												<ul className="pl-6">
@@ -143,8 +143,8 @@ export default function challenge2() {
 															setActiveWindow("code")
 														}}
 													>
-														<div className="flex gap-1">
-															<Document className="w-4" />
+														<div className="flex items-center m-1">
+															<Document className="w-4 mr-2" />
 															<span className="underline cursor-pointer">
 																index.js
 															</span>
@@ -153,20 +153,20 @@ export default function challenge2() {
 												</ul>
 											</li>
 											<li className="pb-1">
-												<div className="flex gap-1">
-													<Folder className="w-4" />
+												<div className="flex items-center m-1">
+													<Folder className="w-4 mr-2" />
 													components
 												</div>
 											</li>
 											<li className="pb-1">
-												<div className="flex gap-1">
-													<Folder className="w-4" />
+												<div className="flex items-center m-1">
+													<Folder className="w-4 mr-2" />
 													public
 												</div>
 											</li>
 											<li className="pb-1">
-												<div className="flex gap-1">
-													<Document className="w-4" />
+												<div className="flex items-center m-1">
+													<Document className="w-4 mr-2" />
 													package.json
 												</div>
 											</li>
